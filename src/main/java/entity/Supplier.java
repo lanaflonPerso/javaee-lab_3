@@ -1,9 +1,7 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Company-supplier of the product.
@@ -18,6 +16,9 @@ public class Supplier {
     private String name;
     private String url;
     private String description;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "supplier")
+    private Set<Product> products;
 
     public Supplier() {
     }
@@ -58,6 +59,14 @@ public class Supplier {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     @Override

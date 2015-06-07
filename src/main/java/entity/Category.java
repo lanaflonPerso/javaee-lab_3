@@ -1,9 +1,7 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Product's category
@@ -16,6 +14,9 @@ public class Category {
 
     private String name;
     private String description;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    private Set<Product> products;
 
     public Category() {
     }
@@ -47,6 +48,14 @@ public class Category {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     @Override
