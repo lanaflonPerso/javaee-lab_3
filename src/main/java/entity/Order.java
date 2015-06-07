@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@NamedQueries(
-        @NamedQuery(name = "Order.findById", query = "SELECT d FROM 'order' d WHERE d.id = :id"),
-        @NamedQuery(name = "Order.findAll", query = "SELECT d FROM 'order' d")
-)
+@NamedQueries({
+        @NamedQuery(name = "Order.findById", query = "SELECT d FROM Order d WHERE d.id = :id"),
+        @NamedQuery(name = "Order.findAll", query = "SELECT d FROM Order d")
+})
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

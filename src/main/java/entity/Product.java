@@ -8,10 +8,10 @@ import java.util.Date;
  * Product Entity
  */
 @Entity
-@NamedQueries(
-        @NamedQuery(name = "Product.findById", query = "SELECT d FROM product d WHERE d.id = :id"),
-        @NamedQuery(name = "Product.findAll", query = "SELECT d FROM product d")
-)
+@NamedQueries({
+        @NamedQuery(name = "Product.findById", query = "SELECT d FROM Product d WHERE d.id = :id"),
+        @NamedQuery(name = "Product.findAll", query = "SELECT d FROM Product d")
+})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
