@@ -17,11 +17,11 @@ public class Item {
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id", nullable = false)
+    @JoinColumn(name = "FK_productID", nullable = false)
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id", nullable = false)
+    @JoinColumn(name = "FK_orderID", nullable = false)
     private Order order;
 
     @Column(columnDefinition = "DECIMAL(6,2)")

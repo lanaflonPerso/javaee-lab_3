@@ -18,7 +18,7 @@ public class Order {
     private DeliveryType deliveryType;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "FK_customerID", nullable = false)
     private Customer customer;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
