@@ -7,6 +7,10 @@ import java.math.BigDecimal;
  * Item of the order
  */
 @Entity
+@NamedQueries(
+        @NamedQuery(name = "Item.findById", query = "SELECT d FROM item d WHERE d.id = :id"),
+        @NamedQuery(name = "Item.findAll", query = "SELECT d FROM item d")
+)
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +26,7 @@ public class Item {
 
     @Column(columnDefinition = "DECIMAL(6,2)")
     private BigDecimal price;
+
     private short number;
     private String description;
 

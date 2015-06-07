@@ -8,6 +8,10 @@ import java.util.Set;
  * Preferably it's not a manufacturer, but mediator.
  */
 @Entity
+@NamedQueries(
+        @NamedQuery(name = "Supplier.findById", query = "SELECT d FROM supplier d WHERE d.id = :id"),
+        @NamedQuery(name = "Supplier.findAll", query = "SELECT d FROM supplier d")
+)
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

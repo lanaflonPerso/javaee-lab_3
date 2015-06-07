@@ -7,6 +7,11 @@ import java.util.Set;
  * Product's category
  */
 @Entity
+@Table(name="category")
+@NamedQueries(
+        @NamedQuery(name = "Category.findById", query = "SELECT d FROM category d WHERE d.id = :id"),
+        @NamedQuery(name = "Category.findAll", query = "SELECT d FROM category d")
+)
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

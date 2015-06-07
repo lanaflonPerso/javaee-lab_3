@@ -5,6 +5,10 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
+@NamedQueries(
+        @NamedQuery(name = "Order.findById", query = "SELECT d FROM 'order' d WHERE d.id = :id"),
+        @NamedQuery(name = "Order.findAll", query = "SELECT d FROM 'order' d")
+)
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +27,9 @@ public class Order {
     @Enumerated(EnumType.ORDINAL)
     private OrderStatus status;
 
+    @Temporal(TemporalType.DATE)
     private Date date;
+
     private String address;
 
     public Order() {

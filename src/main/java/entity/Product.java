@@ -8,6 +8,10 @@ import java.util.Date;
  * Product Entity
  */
 @Entity
+@NamedQueries(
+        @NamedQuery(name = "Product.findById", query = "SELECT d FROM product d WHERE d.id = :id"),
+        @NamedQuery(name = "Product.findAll", query = "SELECT d FROM product d")
+)
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +33,7 @@ public class Product {
     @JoinColumn(name = "supplier_id", nullable = true)
     private Supplier supplier;
 
+    @Temporal(TemporalType.DATE)
     private Date date;
     private String brand;
 
