@@ -35,8 +35,7 @@ public class EntityService {
     public <T> void delete(T t) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.merge(t);
-        em.remove(t);
+        em.remove(em.merge(t));
         em.getTransaction().commit();
         em.close();
     }
