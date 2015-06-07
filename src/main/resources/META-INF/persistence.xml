@@ -6,7 +6,13 @@
              version="2.1">
 
     <persistence-unit name="easySaleTracking" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>entity.Category</class>
+        <class>entity.Customer</class>
+        <class>entity.Item</class>
+        <class>entity.Order</class>
+        <class>entity.Product</class>
+        <class>entity.Supplier</class>
 
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
@@ -14,7 +20,7 @@
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="11111111"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
         </properties>
     </persistence-unit>
 </persistence>

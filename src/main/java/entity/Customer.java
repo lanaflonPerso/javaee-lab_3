@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name="customer")
 @NamedQueries({
         @NamedQuery(name = "Customer.findById", query = "SELECT d FROM Customer d WHERE d.id = :id"),
         @NamedQuery(name = "Customer.findAll", query = "SELECT d FROM Customer d")

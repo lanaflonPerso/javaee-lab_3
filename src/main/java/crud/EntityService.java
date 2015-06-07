@@ -50,9 +50,13 @@ public class EntityService {
 
     public <T> List<T> getAll(Class<T> type) {
         EntityManager em = emf.createEntityManager();
-        List<T> entities = em.createNamedQuery(type.getSimpleName() + ".findById").setParameter("id", 3).getResultList();
+        List<T> entities = em.createNamedQuery(type.getSimpleName() + ".findAll").getResultList();
         em.close();
         return entities;
+    }
+
+    public void close() {
+        emf.close();
     }
 
 

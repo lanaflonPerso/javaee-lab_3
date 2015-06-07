@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
+@Table(name="order")
 @NamedQueries({
         @NamedQuery(name = "Order.findById", query = "SELECT d FROM Order d WHERE d.id = :id"),
         @NamedQuery(name = "Order.findAll", query = "SELECT d FROM Order d")

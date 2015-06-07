@@ -7,6 +7,7 @@ import java.math.BigDecimal;
  * Item of the order
  */
 @Entity
+@Table(name="item")
 @NamedQueries({
         @NamedQuery(name = "Item.findById", query = "SELECT d FROM Item d WHERE d.id = :id"),
         @NamedQuery(name = "Item.findAll", query = "SELECT d FROM Item d")
