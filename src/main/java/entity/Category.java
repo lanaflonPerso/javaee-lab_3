@@ -6,25 +6,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Company-supplier of the product.
- * Preferably it's not a manufacturer, but mediator.
+ * Product's category
  */
 @Entity
-public class Supplier {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
-    private String url;
     private String description;
 
-    public Supplier() {
+    public Category() {
     }
 
-    public Supplier(String name, String url, String description) {
+    public Category(String name, String description) {
         this.name = name;
-        this.url = url;
         this.description = description;
     }
 
@@ -44,14 +41,6 @@ public class Supplier {
         this.name = name;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -65,9 +54,9 @@ public class Supplier {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Supplier supplier = (Supplier) o;
+        Category category = (Category) o;
 
-        if (name != null ? !name.equals(supplier.name) : supplier.name != null) return false;
+        if (name != null ? !name.equals(category.name) : category.name != null) return false;
 
         return true;
     }
@@ -75,10 +64,5 @@ public class Supplier {
     @Override
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
-    }
-
-    @Override
-    public String toString() {
-        return "Supplier#" + id;
     }
 }
