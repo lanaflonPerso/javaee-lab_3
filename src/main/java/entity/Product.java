@@ -37,6 +37,7 @@ public class Product {
     @Temporal(TemporalType.DATE)
     private Date date;
     private String brand;
+//    TODO: add description field
 
     public Product() {
     }
