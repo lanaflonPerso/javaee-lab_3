@@ -3,6 +3,7 @@ package entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * Product Entity
@@ -36,6 +37,10 @@ public class Product {
 
     @Temporal(TemporalType.DATE)
     private Date date;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+    private Set<Item> items;
+
     private String brand;
 //    TODO: add description field
 
@@ -131,6 +136,14 @@ public class Product {
 
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
+    }
+
+    public Set<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<Item> items) {
+        this.items = items;
     }
 
     @Override
