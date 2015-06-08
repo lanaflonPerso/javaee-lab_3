@@ -31,6 +31,7 @@ public class Order {
     @Temporal(TemporalType.DATE)
     private Date date;
 
+//    TODO: add one more column - resource: website, where the order has been made
     private String address;
 
     public Order() {
