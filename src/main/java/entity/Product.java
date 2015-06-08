@@ -26,11 +26,11 @@ public class Product {
     @Column(columnDefinition = "DECIMAL(6,2)")
     private BigDecimal boughtPrice;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {})
     @JoinColumn(name = "FK_categoryID", nullable = false)
     private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {})
     @JoinColumn(name = "FK_supplierID", nullable = true)
     private Supplier supplier;
 
@@ -162,5 +162,10 @@ public class Product {
         result = 31 * result + (category != null ? category.hashCode() : 0);
         result = 31 * result + (supplier != null ? supplier.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer#" + id;
     }
 }
